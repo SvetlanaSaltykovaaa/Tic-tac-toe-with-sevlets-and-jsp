@@ -14,4 +14,5 @@ public enum Sign {
     public char getSign() {
         return sign;
     }
+
 }
