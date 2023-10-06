@@ -13,10 +13,8 @@ import java.util.Map;
 @WebServlet(name = "InitServlet", value = "/start")
 public class InitServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession currentSession = req.getSession(true);
-
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession currentSession = request.getSession(true);
         // Создание игрового поля
         Field field = new Field();
         Map<Integer, Sign> fieldData = field.getField();
@@ -31,7 +29,7 @@ public class InitServlet extends HttpServlet {
         currentSession.setAttribute("data", data);
 
         // Перенаправление запроса на страницу index.jsp через сервер
-        getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }
 }
 
