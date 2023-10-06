@@ -1,16 +1,21 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <%@ page import="com.tictactoe.Sign" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 
 <!DOCTYPE html>
 <html>
 <head>
     <link href="static/main.css" rel="stylesheet">
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <script src="<c:url value="/static/jquery-3.6.0.min.js"/>"></script>
+    <script src="<c:url value='/static/jquery-3.6.0.min.js'/>"></script>
     <title>Tic-Tac-Toe</title>
 </head>
 <body>
 <h1>Tic-Tac-Toe</h1>
+
 <table>
     <tr>
         <td onclick="window.location='/logic?click=0'">${data.get(0).getSign()}</td>
@@ -30,8 +35,8 @@
 </table>
 
 <hr>
-<c:set var="CROSSES" value="<%=Sign.CROSS%>"/>
-<c:set var="NOUGHTS" value="<%=Sign.NOUGHT%>"/>
+<c:set var="CROSSES" value="${Sign.CROSS}"/>
+<c:set var="NOUGHTS" value="${Sign.NOUGHT}"/>
 
 <c:if test="${winner == CROSSES}">
     <h1>CROSSES WIN!</h1>
@@ -58,7 +63,6 @@
             }
         });
     }
-
 </script>
 
 </body>
